@@ -37,6 +37,13 @@ enum vga_color {
 void vga_put_entry_at(uint16_t entry, size_t x, size_t y);
 
 /**
+ * @brief Gets an entry from the VGA buffer at a memory address based off of the x and y coordinate.
+ * @param x     The x coordinate.
+ * @param y     The y coordinate.
+ */
+uint16_t vga_get_entry_at(size_t x, size_t y);
+
+/**
  * @brief Creates a VGA Text mode attribute using two colors from the EGA palette.
  * @param background_color  The color for the background of the attribute.
  * @param foreground_color  The color for the foreground of the attribute.

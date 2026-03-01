@@ -11,8 +11,6 @@ void terminal_init() {
     );
 }
 
-
-
 void terminal_put_char(uint8_t character) {
     if(character == '\n') {
         cursor_column = 0;
@@ -37,11 +35,7 @@ void terminal_put_char(uint8_t character) {
     }
 
     if(cursor_row >= VGA_TEXT_HEIGHT) {
-        // terminal_scroll()
-        
-        // for now just clear terminal, since memcpy is not implemented yet
-        terminal_clear(); 
-        cursor_row = VGA_TEXT_HEIGHT - 1;
+        terminal_scroll();
     }
 }
 
@@ -68,5 +62,21 @@ void terminal_set_attribute(uint16_t attribute) {
 }
 
 void terminal_scroll() {
+    for (int y = 0; y < VGA_TEXT_HEIGHT - 1; y++) {
+        for (int x = 0; x < VGA_TEXT_WIDTH; x++) {
+            uint16_t entry = vga_get_entry_at(x, y);
+            vga_put_entry_at(entry, x + 1, y);
+        }
+    }
 
+    for (int x = 0; x < VGA_TEXT_WIDTH; x++) {
+        uint16_t entry = vga_create_entry(
+            ' ', terminal_attribute
+        );
+
+        vga_put_entry_at(entry, x, VGA_TEXT_HEIGHT - 1);
+    }
+    
+    cursor_column = 0;
+    cursor_row = 24;
 }
