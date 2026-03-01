@@ -12,8 +12,8 @@ A *32-bit x86-based* kernel that focuses on **clean structure** and a robust, **
 - [X] Modern CMake integration
 - [X] Basic VGA text-mode driver
 - [X] `kprintf` coroutine
-- [ ] CPUID implementation
-- [ ] GDT/IDT implementation
+- [_] CPUID implementation
+- [_] GDT/IDT implementation
 
 # Prerequisites
 - You'll need an `i686-elf`-capable cross-compiler
