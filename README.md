@@ -13,7 +13,7 @@ A *32-bit x86-based* kernel that focuses on **clean structure** and a robust, **
 - [X] Basic VGA text-mode driver
 - [X] `kprintf` coroutine
 - [ ] CPUID implementation
-- [ ] GDT/IDT implementation
+- [/] GDT/IDT implementation
 
 # Prerequisites
 - You'll need an `i686-elf`-capable cross-compiler

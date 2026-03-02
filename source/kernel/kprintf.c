@@ -1,13 +1,10 @@
 #include <stdarg.h>
 
-#include "kprint.h"
-#include "terminal.h"
-#include "string.h"
+#include "kernel/kprint.h"
+#include "drivers/terminal.h"
+#include "library/string.h"
 
-void kprintf(char* str, ...) {
-    va_list args;
-    va_start(args, str);
-
+void vkprintf(char *str, va_list args) {
     static char buffer[12]; 
     char* s_ptr;
 
@@ -51,6 +48,11 @@ void kprintf(char* str, ...) {
 
         str++;
     }
+}
 
+void kprintf(char* str, ...) {
+    va_list args;
+    va_start(args, str);
+    vkprintf(str, args);
     va_end(args);
 }

@@ -13,7 +13,9 @@ ADD_EXECUTABLE(spark
 	source/kernel/kmain.c
 	source/kernel/kpanic.c
 	source/kernel/kprintf.c
+	source/kernel/kstatus.c
 
+	source/drivers/cpu.c
 	source/drivers/vga.c
 	source/drivers/terminal.c
 

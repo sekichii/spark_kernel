@@ -1,13 +1,19 @@
-#include "terminal.h"
-#include "vga.h"
+#include "drivers/terminal.h"
+#include "drivers/vga.h"
 
 size_t cursor_column = 0;
 size_t cursor_row = 0;
 uint8_t terminal_attribute = 0;
 
 void terminal_init() {
+    terminal_change_attribute(
+        VGA_COLOR_BLACK, VGA_COLOR_WHITE
+    );
+}
+
+void terminal_change_attribute(uint8_t foreground, uint8_t background) {
     terminal_attribute = vga_create_attribute(
-        VGA_COLOR_GREEN, VGA_COLOR_BRIGHT_GREEN
+        foreground, background
     );
 }
 

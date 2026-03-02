@@ -1,15 +1,21 @@
 #include <cpuid.h>
 
-#include "terminal.h"
-#include "kprint.h"
+#include "drivers/terminal.h"
+
+#include "kernel/kprint.h"
+#include "kernel/kstatus.h"
+#include "kernel/kpanic.h"
+
+#include "gdt.h"
 
 void k_main(void) {
 	terminal_init();
 	terminal_clear();
 
-	// goals for tomorrow: actually read out data about the cpu via cpuid
+	kstatus_info("Spark Kernel");
+	gdt_init();
+	kstatus_debug("Successfully initialized GDT!");
 
-	kprintf("Hello, World! %d", 69420);
 
 	while(1);
 }

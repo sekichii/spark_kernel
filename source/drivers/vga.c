@@ -1,4 +1,4 @@
-#include "vga.h"
+#include "drivers/vga.h"
 
 void vga_put_entry_at(uint16_t entry, size_t x, size_t y) {
     volatile uint16_t* text_buffer = (volatile uint16_t*)VGA_TEXT_BUFFER;
