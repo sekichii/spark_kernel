@@ -11,9 +11,12 @@ A *32-bit x86-based* kernel that focuses on **clean structure** and a robust, **
 - [X] Multiboot header
 - [X] Modern CMake integration
 - [X] Basic VGA text-mode driver
-- [X] `kprintf` coroutine
+- [X] Kernel helper functions
+- [X] GDT implementation
+- [ ] IDT implementation
+- [ ] Physical Memory Manager
 - [ ] CPUID implementation
-- [/] GDT/IDT implementation
+
 
 # Prerequisites
 - You'll need an `i686-elf`-capable cross-compiler
