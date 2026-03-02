@@ -12,8 +12,8 @@ A *32-bit x86-based* kernel that focuses on **clean structure** and a robust, **
 - [X] Modern CMake integration
 - [X] Basic VGA text-mode driver
 - [X] `kprintf` coroutine
-- [_] CPUID implementation
-- [_] GDT/IDT implementation
+- [ ] CPUID implementation
+- [ ] GDT/IDT implementation
 
 # Prerequisites
 - You'll need an `i686-elf`-capable cross-compiler
@@ -43,7 +43,7 @@ The build system outputs both the bare binary for the kernel, and a fully bootab
 qemu-system-i386 -cdrom spark_kernel.iso -boot d
 
 # booting the kernel (uses qemu's built-in bootloader)
-qemu-system-i386 -kernel spark_kernel.iso
+qemu-system-i386 -kernel spark_kernel.bin
 ```
 ### VirtualBox
 Add the .iso file as an Optical Drive via a PIIX4 controller. NOTE: since this is a 32-bit kernel, you'll have to set the OS Version to: "Other/Unknown", not "Other/Unknown 64-bit", otherwise it won't boot.
