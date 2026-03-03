@@ -8,17 +8,19 @@ PROJECT(SparkOS C ASM_NASM)
 
 ADD_EXECUTABLE(spark
 	source/boot.asm
-	source/gdt.c
 	
 	source/kernel/kmain.c
 	source/kernel/kpanic.c
 	source/kernel/kprintf.c
 	source/kernel/kstatus.c
+	source/kernel/gdt.c
+	source/kernel/idt.c
 
 	source/drivers/cpu.c
 	source/drivers/vga.c
 	source/drivers/terminal.c
 
+	source/library/lowlevel.asm
 	source/library/string.c
 )
 

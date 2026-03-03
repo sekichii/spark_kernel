@@ -1,6 +1,6 @@
 #include <stdint.h>
 
-#include "gdt.h"
+#include "kernel/gdt.h"
 
 struct gdt_ptr gdt_ptr_struct;
 struct gdt_entry gdt_entry_struct[6];
@@ -30,6 +30,7 @@ void gdt_init() {
     gdt_entry_struct[4] = encode_gdt_entry(0, 0xFFFFF, 0xF2, 0xC); // User Mode Data Segment
     
     tss_init(0x10, 0x00);
+    load_gdt(&gdt_ptr_struct);
 }
 
 void tss_init(uint16_t ss0, uint32_t esp0) {
